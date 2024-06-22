@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E180E222C26E1F000AC41D0 /* CarsImgClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0E180E212C26E1F000AC41D0 /* CarsImgClassifier.mlmodel */; };
 		0E809E2B2C1F545400E11BC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E809E2A2C1F545400E11BC8 /* AppDelegate.swift */; };
 		0E809E2D2C1F545400E11BC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E809E2C2C1F545400E11BC8 /* SceneDelegate.swift */; };
 		0E809E2F2C1F545400E11BC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E809E2E2C1F545400E11BC8 /* ViewController.swift */; };
 		0E809E322C1F545400E11BC8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E809E312C1F545400E11BC8 /* Base */; };
 		0E809E342C1F545500E11BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E809E332C1F545500E11BC8 /* Assets.xcassets */; };
 		0E809E372C1F545500E11BC8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E809E362C1F545500E11BC8 /* Base */; };
+		0EBAF0342C1F564D002FD85E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAF0332C1F564D002FD85E /* StartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E180E212C26E1F000AC41D0 /* CarsImgClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = CarsImgClassifier.mlmodel; path = ../../../Downloads/CarsImgClassifier.mlmodel; sourceTree = "<group>"; };
 		0E809E272C1F545400E11BC8 /* CarVision.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarVision.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E809E2A2C1F545400E11BC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E809E2C2C1F545400E11BC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		0E809E332C1F545500E11BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E809E362C1F545500E11BC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E809E382C1F545500E11BC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EBAF0332C1F564D002FD85E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		0E809E292C1F545400E11BC8 /* CarVision */ = {
 			isa = PBXGroup;
 			children = (
+				0E180E212C26E1F000AC41D0 /* CarsImgClassifier.mlmodel */,
 				0E809E2A2C1F545400E11BC8 /* AppDelegate.swift */,
 				0E809E2C2C1F545400E11BC8 /* SceneDelegate.swift */,
 				0E809E2E2C1F545400E11BC8 /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				0E809E332C1F545500E11BC8 /* Assets.xcassets */,
 				0E809E352C1F545500E11BC8 /* LaunchScreen.storyboard */,
 				0E809E382C1F545500E11BC8 /* Info.plist */,
+				0EBAF0332C1F564D002FD85E /* StartViewController.swift */,
 			);
 			path = CarVision;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E180E222C26E1F000AC41D0 /* CarsImgClassifier.mlmodel in Sources */,
 				0E809E2F2C1F545400E11BC8 /* ViewController.swift in Sources */,
+				0EBAF0342C1F564D002FD85E /* StartViewController.swift in Sources */,
 				0E809E2B2C1F545400E11BC8 /* AppDelegate.swift in Sources */,
 				0E809E2D2C1F545400E11BC8 /* SceneDelegate.swift in Sources */,
 			);
