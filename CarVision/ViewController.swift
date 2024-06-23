@@ -10,11 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet private weak var squareView: UIView!
-    
     @IBOutlet private weak var squareWhiteView: UIView!
-    
     @IBOutlet private weak var getStartedButton: UIButton!
+    @IBOutlet private weak var carImage: UIImageView!
+    @IBOutlet private weak var carName: UILabel!
     
+    @IBOutlet weak var carModel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         squareView.layer.cornerRadius = 30

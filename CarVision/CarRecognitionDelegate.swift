@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import UIKit
+
+protocol CarRecognitionDelegate: AnyObject {
+    func didRecognizeCar(model: String, image: UIImage)
+}
