@@ -278,6 +278,16 @@
                                     <constraint firstAttribute="height" constant="20.329999999999998" id="Y0r-7a-OGF"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aB4-Jd-nUc">
+                                <rect key="frame" x="172" y="745" width="87" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="View AR"/>
+                                <connections>
+                                    <action selector="viewARButtonTapped:" destination="dfr-Au-FdL" eventType="touchUpInside" id="2gm-aC-SFf"/>
+                                    <segue destination="9Gs-sT-nru" kind="show" identifier="showARView" id="pvd-oz-Gxj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mKM-sP-6Oa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -314,6 +324,7 @@
                         <outlet property="carNumOfDoors" destination="PSo-DC-lIm" id="zta-0H-kgg"/>
                         <outlet property="carTransmission" destination="ihW-Rg-QlS" id="P3s-Ev-kbA"/>
                         <outlet property="saveCarInfoButton" destination="GzJ-uG-TZB" id="tKO-cb-qHW"/>
+                        <outlet property="viewARButton" destination="aB4-Jd-nUc" id="w9O-dr-t50"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bv-e3-Iqo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,22 +349,64 @@
             </objects>
             <point key="canvasLocation" x="116.79389312977099" y="3.5211267605633805"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="eCc-ds-IEl">
+            <objects>
+                <viewController id="9Gs-sT-nru" customClass="ARViewController" customModule="CarVision" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AAz-C0-HKJ">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6JU-Td-5Iy">
+                                <rect key="frame" x="0.0" y="103" width="430" height="746"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQj-dt-TGo">
+                                <rect key="frame" x="178" y="748" width="74" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="addCar:" destination="9Gs-sT-nru" eventType="touchUpInside" id="pQX-aZ-v77"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LdM-9d-a0V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6JU-Td-5Iy" firstAttribute="leading" secondItem="LdM-9d-a0V" secondAttribute="leading" id="Lxq-hH-RJK"/>
+                            <constraint firstItem="6JU-Td-5Iy" firstAttribute="top" secondItem="LdM-9d-a0V" secondAttribute="top" id="N9k-A3-izK"/>
+                            <constraint firstItem="LdM-9d-a0V" firstAttribute="bottom" secondItem="6JU-Td-5Iy" secondAttribute="bottom" id="S58-bV-2RB"/>
+                            <constraint firstItem="AQj-dt-TGo" firstAttribute="centerX" secondItem="6JU-Td-5Iy" secondAttribute="centerX" id="aMV-KD-zwP"/>
+                            <constraint firstItem="LdM-9d-a0V" firstAttribute="trailing" secondItem="6JU-Td-5Iy" secondAttribute="trailing" id="ahU-Jo-3wo"/>
+                            <constraint firstItem="AQj-dt-TGo" firstAttribute="leading" secondItem="LdM-9d-a0V" secondAttribute="leading" constant="178" id="nmd-na-UUI"/>
+                            <constraint firstItem="AQj-dt-TGo" firstAttribute="top" secondItem="LdM-9d-a0V" secondAttribute="top" constant="645" id="o1V-EC-JYY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="t8q-Lv-9FB"/>
+                    <connections>
+                        <outlet property="addCar" destination="AQj-dt-TGo" id="FhT-CI-U8o"/>
+                        <outlet property="arView" destination="6JU-Td-5Iy" id="zXD-39-0CE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Si-mU-5Vd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3996" y="3"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="car.top.door.front.left.and.front.right.open.fill" catalog="system" width="117" height="128"/>
         <image name="transmission" catalog="system" width="128" height="122"/>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="underPageBackgroundColor">
             <color red="0.70980392156862748" green="0.71764705882352942" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
