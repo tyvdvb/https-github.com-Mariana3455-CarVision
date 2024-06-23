@@ -19,6 +19,9 @@
 		0E809E342C1F545500E11BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E809E332C1F545500E11BC8 /* Assets.xcassets */; };
 		0E809E372C1F545500E11BC8 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0E809E362C1F545500E11BC8 /* Base */; };
 		0EBAF0342C1F564D002FD85E /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EBAF0332C1F564D002FD85E /* StartViewController.swift */; };
+		F4B4501B2C2847890019E346 /* car_data3.csv in Resources */ = {isa = PBXBuildFile; fileRef = F4B450182C2847880019E346 /* car_data3.csv */; };
+		F4B4501C2C2847890019E346 /* car_data1.csv in Resources */ = {isa = PBXBuildFile; fileRef = F4B450192C2847890019E346 /* car_data1.csv */; };
+		F4B4501F2C284DDB0019E346 /* car_data2.csv in Resources */ = {isa = PBXBuildFile; fileRef = F4B4501E2C284DDB0019E346 /* car_data2.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		0E809E362C1F545500E11BC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E809E382C1F545500E11BC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EBAF0332C1F564D002FD85E /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		F4B450182C2847880019E346 /* car_data3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = car_data3.csv; sourceTree = "<group>"; };
+		F4B450192C2847890019E346 /* car_data1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = car_data1.csv; sourceTree = "<group>"; };
+		F4B4501E2C284DDB0019E346 /* car_data2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = car_data2.csv; path = ../../car_data2.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,9 @@
 		0E809E292C1F545400E11BC8 /* CarVision */ = {
 			isa = PBXGroup;
 			children = (
+				F4B450192C2847890019E346 /* car_data1.csv */,
+				F4B450182C2847880019E346 /* car_data3.csv */,
+				F4B4501E2C284DDB0019E346 /* car_data2.csv */,
 				0E24D6EC2C27807A00DDEAF9 /* CarsClassifier.mlmodel */,
 				0E24D6EE2C27832C00DDEAF9 /* CarsClassifier.mlmodelc */,
 				0E809E2A2C1F545400E11BC8 /* AppDelegate.swift */,
@@ -148,6 +157,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B4501F2C284DDB0019E346 /* car_data2.csv in Resources */,
+				F4B4501B2C2847890019E346 /* car_data3.csv in Resources */,
+				F4B4501C2C2847890019E346 /* car_data1.csv in Resources */,
 				0E24D6EF2C27832C00DDEAF9 /* CarsClassifier.mlmodelc in Resources */,
 				0E809E342C1F545500E11BC8 /* Assets.xcassets in Resources */,
 				0E809E372C1F545500E11BC8 /* Base in Resources */,

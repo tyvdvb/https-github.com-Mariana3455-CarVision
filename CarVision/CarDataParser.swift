@@ -2,66 +2,82 @@ import Foundation
 
 class CarDataParser {
     let csvFileNames: [String] = [
-        "/Users/marianadekhtiarenko/Desktop/CarVision/CarVision/CarData/car_data1.csv",
-        "CarData/car_data2",
-        "CarData/car_data3"
+        "car_data2.csv"
     ]
-    
+
+    var targetMake: String
+    var targetModel: String
+    var targetYear: Int
+    var carDetails: [String: String]?
+
+    init(targetMake: String, targetModel: String, targetYear: Int) {
+        self.targetMake = targetMake
+        self.targetModel = targetModel
+        self.targetYear = targetYear
+    }
+
     func fetchAndParseCSVs() {
         for csvFileName in csvFileNames {
-            guard let filePath = Bundle.main.path(forResource: csvFileName, ofType: nil) else {
+            guard let fileURL = Bundle.main.url(forResource: csvFileName, withExtension: nil) else {
                 print("File not found: \(csvFileName)")
                 continue
             }
             
-            readCSV(from: filePath)
+            readCSV(from: fileURL)
         }
     }
-    
-    private func readCSV(from filePath: String) {
+
+    func readCSV(from fileURL: URL) {
         do {
-            let data = try String(contentsOfFile: filePath, encoding: .utf8)
-            parseCSV(data: data)
+            let csvContent = try String(contentsOf: fileURL, encoding: .utf8)
+            parseCSV(data: csvContent)
         } catch {
-            print("Error reading CSV from \(filePath): \(error.localizedDescription)")
+            print("Error reading CSV file: \(error.localizedDescription)")
         }
     }
-    
+
     private func parseCSV(data: String) {
-        let rows = data.split(separator: "\n")
-        let header = rows.first?.split(separator: ",") ?? []
+        let rows = data.components(separatedBy: .newlines)
+        guard let header = rows.first?.components(separatedBy: ",").map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) }) else {
+            print("Invalid CSV format: No header row found")
+            return
+        }
+        
         let dataRows = rows.dropFirst()
+        var foundExactMatch = false
+        var closestMatch: [String: String]?
+        var closestYearDifference = Int.max
         
         for row in dataRows {
-            let columns = row.split(separator: ",")
+            let columns = row.components(separatedBy: ",").map({ $0.trimmingCharacters(in: .whitespacesAndNewlines) })
             var details = [String: String]()
             
             for (index, column) in columns.enumerated() {
                 if index < header.count {
-                    details[String(header[index])] = String(column)
+                    details[header[index]] = column
                 }
             }
             
-            if let modelName = details["ModelName"], modelName == "YourCarModel" { // Replace "YourCarModel" with the actual model name you are looking for
-                printCarDetails(details)
+            if let make = details["Make"], let model = details["Model"], let yearString = details["Year"], let year = Int(yearString) {
+                if make == targetMake {
+                    if model.contains(targetModel) || targetModel.contains(model) {
+                        let yearDifference = abs(year - targetYear)
+                        if yearDifference < closestYearDifference {
+                            closestYearDifference = yearDifference
+                            closestMatch = details
+                        }
+                    }
+                }
             }
         }
-    }
-    
-    private func printCarDetails(_ details: [String: String]) {
-        if let fuelType = details["FuelType"] {
-            print("Fuel Type: \(fuelType)")
+        
+        if let closestMatch = closestMatch {
+            carDetails = closestMatch
+            foundExactMatch = true
         }
-        if let drive = details["Drive"] {
-            print("Drive: \(drive)")
-        }
-        if let transmission = details["Transmission"] {
-            print("Transmission: \(transmission)")
-        }
-        if let cityMpg = details["CityMPG"] {
-            print("City MPG: \(cityMpg)")
+        
+        if !foundExactMatch {
+            print("Car details not found for \(targetMake) \(targetModel) \(targetYear)")
         }
     }
 }
-
-
