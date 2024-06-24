@@ -7,6 +7,8 @@ class CurrentVehicleController: UIViewController {
     @IBOutlet private weak var carModel: UILabel!
     @IBOutlet private weak var carTransmission: UILabel!
     @IBOutlet private weak var carNumOfDoors: UILabel!
+    @IBOutlet private weak var carBodyType: UILabel!
+    @IBOutlet private weak var carPower: UILabel!
     @IBOutlet private weak var saveCarInfoButton: UIButton!
     
     @IBOutlet weak var viewARButton: UIButton!
@@ -33,6 +35,10 @@ class CurrentVehicleController: UIViewController {
                         carTransmission.text = carDetails["Transmission Type"]
                         if let numOfDoors = carDetails["Number of Doors"] {
                             carNumOfDoors.text = "Doors: \(numOfDoors)"
+                        }
+                        carBodyType.text = carDetails["Vehicle Style"]
+                        if let power = carDetails["Engine HP"] {
+                            carPower.text = "\(power) hp"
                         }
                         printCarDetails(carDetails)
                     } else {
